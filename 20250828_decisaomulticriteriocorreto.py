@@ -1135,12 +1135,12 @@ Para dados com **outliers** ou **assimetria** (ex.: PIB), considere normalizaç�
                 prefs.append((c, float(w[k]), d, pj, Pj))
 
             # Soma ponderada Π(a,b)
-            soma_num = " + ".join([f"{w_k:.3f}·{P_k:.6f}" for (_, w_k, _, _, P_k) in prefs])
+            soma_terms = [rf"{w_k:.3f}\cdot{P_k:.6f}" for (_, w_k, _, _, P_k) in prefs]
+            soma_str = " + ".join(soma_terms)
             pi_ab = sum(w_k * P_k for (_, w_k, _, _, P_k) in prefs)
             Pi.loc[a, b] = pi_ab
-            st.markdown(f"\\( \\Pi({a},{b}) = {soma_num} = \\mathbf{{{pi_ab:.6f}}} \\)")
+            st.latex(rf"\Pi({a},{b}) = {soma_str} = \mathbf{{{pi_ab:.6f}}}")
             st.markdown("---")
-
 
     # -------------------------------------------------
     # 4) Fluxos φ+, φ− e φ (ranking)
