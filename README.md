@@ -1,2 +1,1 @@
-# 20250902_MDCA
-20250902_MDCA
+Decisão Multicritério
